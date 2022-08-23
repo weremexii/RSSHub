@@ -1,5 +1,9 @@
 name: Yarn Lock Changes
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/yarn-lock-changes.yml'
+      - 'yarn.lock'
 
 jobs:
   yarn_lock_changes:
@@ -11,6 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Yarn Lock Changes
-        uses: Simek/yarn-lock-changes@v0.9.0
+        uses: Simek/yarn-lock-changes@v0.11.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
